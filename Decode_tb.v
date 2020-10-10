@@ -19,6 +19,11 @@ module Decode_tb;
 	wire Jump;
 	wire JALR;
 	wire [31:0] Imm,offset;
+	wire rs1Addr;
+	wire rs2Addr;
+	wire rdAddr;
+	wire SB_type;
+	wire funct3; 
 
 	// Instantiate the Unit Under Test (UUT)
 	Decode uut (
@@ -33,7 +38,12 @@ module Decode_tb;
 		.JALR(JALR),
 		.Imm(Imm),
 		.offset(offset), 
-		.Instruction(Instruction)
+		.Instruction(Instruction),
+		.rs1Addr(rs1Addr),
+		.rs2Addr(rs2Addr),
+		.rdAddr(rdAddr),
+		.SB_type(SB_type),
+		.funct3(funct3)
 	);
 
 	initial begin
