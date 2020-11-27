@@ -1,3 +1,4 @@
+
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
@@ -39,18 +40,18 @@ module ID(clk,Instruction_id, PC_id, RegWrite_wb, rdAddr_wb, RegWriteData_wb, Me
     wire funct3_temp;
     wire [31:0]mux_temp;
 
-    decoder Decode(.MemtoReg(MemtoReg_id),.RegWrite(RegWrite_id),.MemWrite(MemWrite_id),.MemRead(MemRead_id),
+    Decode decoder(.MemtoReg(MemtoReg_id),.RegWrite(RegWrite_id),.MemWrite(MemWrite_id),.MemRead(MemRead_id),
     .ALUCode(ALUCode_id),.ALUSrcA(ALUSrcA_id),.ALUSrcB(ALUSrcB_id),.Jump(Jump),.JALR(JALR_temp),.Imm(Imm_id),
     .offset(offset_temp),.rs1Addr(rs1Addr_id),.rs2Addr(rs2Addr_id),.rdAddr(rdAddr_id),.SB_type(SB_type), 
     .funct3(funct3_temp), .Instruction(Instruction_id));
 
-    registers Registers(.rs1Data(rs1Data_id),.rs2Data(rs2Data_id),.clk(clk),.rs1Addr(rs1Addr_id),
+    Registers registers(.rs1Data(rs1Data_id),.rs2Data(rs2Data_id),.clk(clk),.rs1Addr(rs1Addr_id),
     .rs2Addr(rs2Addr_id),.WriteAddr(rdAddr_wb),.RegWrite(RegWrite_wb),.WriteData(RegWriteData_wb));
 
-    branchtest BranchTest(.branch(Branch),.SB_type(SB_type_temp),.funct3(funct3_temp), 
+    BranchTest branchtest(.branch(Branch),.SB_type(SB_type_temp),.funct3(funct3_temp), 
     .rs1Data(rs1Data_id),.rs2Data(rs2Data_id));
 
-    assign mux_temp = JALR?rs1Data_id:PC_id;
+    assign mux_temp = JALR_temp?rs1Data_id:PC_id;
     assign JumpAddr = mux_temp + offset_temp;
 
     // Hazard Detector

@@ -3,6 +3,6 @@
 ## ID级
 完成了decoder、branch tester、register、hazard detector，没有仿真，testbench懒得写
 ## EX级
-只他妈的写完了ALU
+完成了ALU、Forwarding，没有仿真，testbench懒得写
 ## further description
 人下人CPU，交作业水平。带佬🚪就饶了🐀人吧！

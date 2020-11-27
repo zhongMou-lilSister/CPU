@@ -12,7 +12,7 @@ module ALU (
 	   ALUCode, A, B);
 	input [3:0]	ALUCode;				// Operation select
 	input [31:0]	A, B;
-	output [31:0]	ALUResult;
+	output  reg [31:0]	ALUResult;
 	
 // Decoded ALU operation select (ALUsel) signals
    parameter	 alu_add=  4'b0000;

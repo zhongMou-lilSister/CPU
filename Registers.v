@@ -18,7 +18,7 @@ module Registers(rs1Data, rs2Data, clk, rs1Addr, rs2Addr, WriteAddr,
     assign rs1Sel = RegWrite && (WriteAddr != 0) && (WriteAddr == rs1Addr);
     assign rs2Sel = RegWrite && (WriteAddr != 0) && (WriteAddr == rs2Addr);
 
-    insider RBWRegisters(.ReadData1(temp1),.ReadData2(temp2),.clk(clk),.ReadRegisters1(rs1Addr),.ReadRegisters2(rs2Addr), 
+    RBWRegisters insider(.ReadData1(temp1),.ReadData2(temp2),.clk(clk),.ReadRegisters1(rs1Addr),.ReadRegisters2(rs2Addr), 
     .WriteRegister(WriteAddr),.RegWrite(RegWrite),.WriteData(WriteData));
 
     assign rs1Data = (rs1Sel)?temp1:WriteData;
