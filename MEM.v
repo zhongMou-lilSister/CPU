@@ -22,10 +22,10 @@
 
 module MEM(
     input WE,
-    input Addr,
+    input [5:0] Addr,
     input Clk,
-    input Data,
-    output SPO
+    input [31:0] Data,
+    output [31:0] SPO
     );
     
 dist_mem_gen_0 your_instance_name (
