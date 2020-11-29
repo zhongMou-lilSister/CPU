@@ -204,7 +204,7 @@ module Risc5CPU(clk, reset, JumpFlag, Instruction_id, ALU_A,
             RegWrite_mem     <= 0;
             MemtoReg_mem     <= 0;
             MemWrite_mem     <= 0;
-            ALUResult_mem    <= 0;
+            ALUResult_mem    <= 32'h00000000;
             MemWriteData_mem <= 32'h00000000;
             rdAddr_mem       <= 5'h00;
         end
@@ -250,5 +250,7 @@ module Risc5CPU(clk, reset, JumpFlag, Instruction_id, ALU_A,
     end
 
     assign RegWriteData_wb = (MemtoReg_wb)?MemDout_wb : ALUResult_wb;
+    assign JumpFlag = {Jump, Branch};
+    assign PC = PC_if;
     
 endmodule

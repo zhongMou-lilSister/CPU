@@ -12,25 +12,24 @@ module IF(clk, reset, Branch,Jump, IFWrite, JumpAddr,Instruction_if,PC,IF_flush)
     input [31:0] JumpAddr;
     output [31:0] Instruction_if;
     output reg [31:0] PC;
-    output reg IF_flush;
+    output IF_flush;
 
     reg [31:0] NextPC_if;
+    assign IF_flush = Jump | Branch;
 
     
     always @(posedge clk)
     begin
         if (reset==1)
         begin
-            NextPC_if <= 32'h00000000;
+            NextPC_if <= 32'h00000004;
 	        PC<=32'h00000000;
-	        IF_flush<=0;
         end
 	    else
         begin
-            IF_flush <= Branch | Jump;
             if (IFWrite) begin
-                PC<=(Branch | Jump)?JumpAddr:NextPC_if;
-                NextPC_if <= NextPC_if + 32'h00000004;
+                PC<= (IF_flush)?JumpAddr:NextPC_if;
+                NextPC_if <= (IF_flush)?(JumpAddr + 32'h00000004):(NextPC_if + 32'h00000004);
 	        // Instruction_if <= 32'h00000004;
             end
 

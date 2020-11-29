@@ -19,11 +19,11 @@ module Decode_tb;
 	wire Jump;
 	wire JALR;
 	wire [31:0] Imm,offset;
-	wire rs1Addr;
-	wire rs2Addr;
-	wire rdAddr;
+	wire [4:0] rs1Addr;
+	wire [4:0] rs2Addr;
+	wire [4:0] rdAddr;
 	wire SB_type;
-	wire funct3; 
+	wire [2:0] funct3; 
 
 	// Instantiate the Unit Under Test (UUT)
 	Decode uut (
