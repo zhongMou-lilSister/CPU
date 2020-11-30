@@ -62,7 +62,7 @@ module Decode_tb;
 		#200 Instruction = 32'h00432e83;//lw X29, 04(X6)
 		#200 Instruction = 32'h002e9293;//slli X5, X29,2
 		#200 Instruction = 32'h00733e33;//sltu X28, X6,X7
-		#200 Instruction = 32'h0000f6f;//jal  X3, done
+		#200 Instruction = 32'h0000fef;//jal  X31, done
 	
         #200 $stop;
 	end

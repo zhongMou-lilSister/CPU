@@ -42,7 +42,7 @@ module ID(clk,Instruction_id, PC_id, RegWrite_wb, rdAddr_wb, RegWriteData_wb, Me
 
     Decode decoder(.MemtoReg(MemtoReg_id),.RegWrite(RegWrite_id),.MemWrite(MemWrite_id),.MemRead(MemRead_id),
     .ALUCode(ALUCode_id),.ALUSrcA(ALUSrcA_id),.ALUSrcB(ALUSrcB_id),.Jump(Jump),.JALR(JALR_temp),.Imm(Imm_id),
-    .offset(offset_temp),.rs1Addr(rs1Addr_id),.rs2Addr(rs2Addr_id),.rdAddr(rdAddr_id),.SB_type(SB_type), 
+    .offset(offset_temp),.rs1Addr(rs1Addr_id),.rs2Addr(rs2Addr_id),.rdAddr(rdAddr_id),.SB_type(SB_type_temp), 
     .funct3(funct3_temp), .Instruction(Instruction_id));
 
     Registers registers(.rs1Data(rs1Data_id),.rs2Data(rs2Data_id),.clk(clk),.rs1Addr(rs1Addr_id),
