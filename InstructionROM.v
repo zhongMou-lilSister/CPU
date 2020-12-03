@@ -29,7 +29,7 @@ module InstructionROM(addr,dout);
 			6'd4:   dout<=32'h002e_9293 ;//10         sll  X5,  X29, 2 
 			6'd5:   dout<=32'h0043_2e03 ;//14         lw   X28, 4(X6)
 			6'd6:   dout<=32'h0073_3e33 ;//18	      sltu X28, X6,X7 
-			6'd7:   dout<=32'h0000_0fef ;//1c done:   jal  X31, done
+			6'd7:   dout<=32'h0000_0f6f ;//1c done:   jal  X31, done
 			6'd8:   dout<=32'h0000_1c63 ;//20 later:  bne  X0,  X0, end  	
 			6'd9:   dout<=32'h042f_0293 ;//24         addi X5,  X30, 42
 			6'd10:  dout<=32'h01f0_0333 ;//28         add  X6,  X0, X31 

@@ -57,7 +57,7 @@ module Decode_tb;
 		#200 Instruction = 32'h01f00333;//add  X6, X0, X31
 		#200 Instruction = 32'h406283b3;//sub  X7, X5, X6		
 		#200 Instruction = 32'h0053ee33;//or	 X28, X7, X5		
-		#200 Instruction = 32'hfc000ae3;//beq X0, X0, earlier
+		#200 Instruction = 32'hfc000a63;//beq X0, X0, earlier
 		#200 Instruction = 32'h001c2623;//sw  X24, 0C(X1)	
 		#200 Instruction = 32'h00432e83;//lw X29, 04(X6)
 		#200 Instruction = 32'h002e9293;//slli X5, X29,2
